@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: headerlinks">
+    <meta charset="UTF-8">
+    <title>Book List</title>
+</head>
+<body>
+<header th:replace="fragments :: navigator"></header>
+
+<main role="main" class="main">
+    <div class="container">
+        <div class="row col-md-12">
+            <div class="row col-md-12">
+                <div class="col-md-2">Id</div>
+                <div class="col-md-5">Title</div>
+                <div class="col-md-5">Year Written</div>
+                <div class="col-md-5">How Old</div>
+                <div class="col-md-5"></div> <!--Guziki-->
+            </div>
+            <div class="row col-md-12" th:each="house : ${phouses}">
+                <div class="col-md-2" th:text="${house.getId()}"></div>
+                <div class="col-md-5" th:text="${house.getName()}"></div>
+                <div class="row col-md-5">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="fragments :: footerscripts"></footer>
+</main>
+
+
+<div th:replace="fragments :: footer"></div>
+</body>
+</html>
