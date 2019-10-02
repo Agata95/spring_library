@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="fragments :: headerlinks">
     <meta charset="UTF-8">
     <title>Index Page</title>
-
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
 </head>
 <body>
+<header th:replace="fragments :: navigator"></header>
 
+<main role="main">
+    <h1>Siemano</h1>
+
+    <footer th:replace="fragments :: footerscripts"></footer>
+</main>
+
+
+<div th:replace="fragments :: footer"></div>
 </body>
 </html>
