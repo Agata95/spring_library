@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments :: headerlinks">
+<head>
     <meta charset="UTF-8">
-    <title>Publishing House List</title>
+    <title>Ph List</title>
+    <div th:replace="fragments :: headerlinks" th:remove="tag"></div>
 </head>
 <body>
 <header th:replace="fragments :: navigator"></header>
@@ -42,10 +43,9 @@
         </div>
     </div>
 
-    <footer th:replace="fragments :: footerscripts"></footer>
+    <footer th:replace="fragments :: footer"></footer>
 </main>
 
-
-<div th:replace="fragments :: footer"></div>
+<div th:replace="fragments :: footerscripts"></div>
 </body>
 </html>

@@ -13,19 +13,20 @@ import java.util.Optional;
 public class PublishingHouseService {
     private final PublishingHouseRepository publishingHouseRepository;
 
+
     public List<PublishingHouse> getAll() {
         return publishingHouseRepository.findAll();
     }
 
-    public void addPh(PublishingHouse ph) {
-        publishingHouseRepository.save(ph);
+    public void save(PublishingHouse publishingHouse) {
+        publishingHouseRepository.save(publishingHouse);
     }
 
-    public Optional<PublishingHouse> findId(Long phId) {
-        return publishingHouseRepository.findById(phId);
+    public Optional<PublishingHouse> getById(Long id) {
+        return publishingHouseRepository.findById(id);
     }
 
-    public void delete(Long phId) {
-        publishingHouseRepository.deleteById(phId);
+    public void remove(Long id) {
+        publishingHouseRepository.deleteById(id);
     }
 }

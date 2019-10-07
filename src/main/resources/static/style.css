@@ -1,3 +1,6 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -13,10 +16,6 @@
     }
 }
 
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-
 body {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -31,6 +30,7 @@ body {
 .carousel {
     margin-bottom: 4rem;
 }
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
     bottom: 3rem;
@@ -41,6 +41,7 @@ body {
 .carousel-item {
     height: 32rem;
 }
+
 .carousel-item > img {
     position: absolute;
     top: 0;
@@ -58,9 +59,11 @@ body {
     margin-bottom: 1.5rem;
     text-align: center;
 }
+
 .marketing h2 {
     font-weight: 400;
 }
+
 .marketing .col-lg-4 p {
     margin-right: .75rem;
     margin-left: .75rem;
@@ -104,7 +107,7 @@ body {
     }
 }
 
-.main{
+.main {
     margin-top: 10px;
 }
 
@@ -112,6 +115,7 @@ body {
     margin-top: 10px;
     border: solid 1px #5a5a5a;
 }
+
 .list-header-row {
     font: bold 1.4rem Arial;
     background-color: aliceblue;
@@ -119,6 +123,7 @@ body {
     margin: 1px;
     padding: 2px 0 2px 0;
 }
+
 .list-row:nth-child(odd) {
     background-color: honeydew;
     margin: 1px;
@@ -146,4 +151,5 @@ body {
 .form-row-container{
     background-color: azure;
     padding: 10px;
+
 }

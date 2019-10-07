@@ -16,45 +16,55 @@ import java.util.Optional;
 public class PublishingHouseController {
     private final PublishingHouseService publishingHouseService;
 
-    @GetMapping(path = "/list")
-    public String list(Model model){
-        List<PublishingHouse> publishingHouseList = publishingHouseService.getAll();
-        model.addAttribute("phouses", publishingHouseList);
+    @GetMapping("/list")
+    public String list(Model model) {
+        List<PublishingHouse> publishingHouses = publishingHouseService.getAll();
+        model.addAttribute("phouses", publishingHouses);
+
         return "ph-list";
     }
 
-    @GetMapping(path = "/add")
-    public String addPh(Model model, PublishingHouse ph){
-        model.addAttribute("ph", ph);
-
+    @GetMapping("/add")
+    public String add(Model model, PublishingHouse publishingHouse) {
+        model.addAttribute("publishingHouse", publishingHouse);
         return "ph-add";
     }
 
-    @PostMapping("/add")
-    public String addPh(PublishingHouse ph){
-        publishingHouseService.addPh(ph);
-
+    @GetMapping("/remove/{id}")
+    public String add(@PathVariable(name = "id") Long id) {
+        publishingHouseService.remove(id);
         return "redirect:/ph/list";
     }
 
-    @GetMapping(path = "/edit/{id}")
-    public String edit(Model model,
-                       @PathVariable(name = "id") Long phId) {
-        Optional<PublishingHouse> phOptional = publishingHouseService.findId(phId);
-        if (phOptional.isPresent()) {
-            model.addAttribute("ph", phOptional.get());
-            model.addAttribute("phId", phId);
+    @GetMapping("/edit/{id}")
+    public String add(Model model,
+                      @PathVariable(name = "id") Long id) {
+        Optional<PublishingHouse> publishingHouseOptional = publishingHouseService.getById(id);
+        if (publishingHouseOptional.isPresent()) {
+            model.addAttribute("publishingHouse", publishingHouseOptional.get());
+
             return "ph-add";
         }
         return "redirect:/ph/list";
     }
 
-    @GetMapping(path = "/remove/{id}")
-    public String delete(Model model,
-                         @PathVariable(name = "id") Long phId) {
-        model.addAttribute("id", phId);
-        publishingHouseService.delete(phId);
+    @PostMapping("/add")
+    public String add(PublishingHouse publishingHouse) {
+        publishingHouseService.save(publishingHouse);
 
+        return "redirect:/ph/list";
+    }
+
+    @GetMapping("/books/{id}")
+    public String getPHBooks(Model model, @PathVariable(name = "id") Long id) {
+        Optional<PublishingHouse> publishingHouseOptional = publishingHouseService.getById(id);
+        if (publishingHouseOptional.isPresent()) {
+            PublishingHouse publishingHouse = publishingHouseOptional.get();
+
+            model.addAttribute("books", publishingHouse.getBooks());
+
+            return "book-list";
+        }
         return "redirect:/ph/list";
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.tymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Fragments</title>
@@ -7,23 +7,35 @@
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
         <link rel="stylesheet" th:href="@{/style.css}">
     </th:block>
-
 </head>
 <body>
 <th:block th:fragment="navigator">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">BookStore</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/">BookStore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/ph/list}">Ph List<span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/ph/list}">PH list</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/ph/add}">Add ph<span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/ph/add}">PH add</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/book/list}">Book list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/book/add}">Book add</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/client/list}">Client list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/client/add}">Client add</a>
                     </li>
                 </ul>
             </div>
@@ -37,13 +49,11 @@
     <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
 </th:block>
 
-
 <footer th:fragment="footer">
     <footer class="container">
         <p class="float-right"><a href="#">Back to top</a></p>
         <p>&copy; 2017-2019 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
 </footer>
-
 </body>
 </html>

@@ -1,8 +1,6 @@
 package com.javagda25.spring_library.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
@@ -11,7 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Book  {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,13 +24,13 @@ public class Book  {
     private int numberOfPages;
     private int numberOfAvailableCopies;
 
-//    @Formula(value = "(select count(*) from BookLent bl where bl.book_id = id and bl.dateReturned is null )")
+//    @Formula(value = "(select count(*) from booklent bl where bl.book_id = id and bl.date_returned is null )")
 //    private int numberOfBorrowedCopies;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private PublishingHouse publishingHouse;
 
-    //    @ToString.Exclude
+//    @ToString.Exclude
 //    @EqualsAndHashCode.Exclude
 //    @ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
 //    private Set<Author> authors;
